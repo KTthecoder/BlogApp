@@ -1,0 +1,20 @@
+.ErrorContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 55vh;
+    text-align: center;
+}
+
+.ErrorLink{
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.ErrorLink:hover{
+    color: rgb(15, 118, 173);
+}

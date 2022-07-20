@@ -1,0 +1,15 @@
+import '../PrivacyPolicy/PrivacyPolicy.css'
+
+function PrivacyPolicy() {
+    return (
+        <div className="PrivacyContainer">
+            <h1>Privacy Policy</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum, sem in bibendum vehicula, leo turpis dictum lacus, a egestas risus massa commodo mi. Pellentesque a enim varius, ornare magna et, vehicula mauris. Donec orci turpis, pellentesque non ultricies non, ornare in mi. Ut aliquet enim ac arcu laoreet ornare. Aenean pellentesque auctor egestas. Cras pellentesque elit sit amet facilisis tempus. Aliquam quis purus sed libero tincidunt semper. Vivamus eget nisi id elit efficitur mollis non ac quam. Aenean pretium porttitor odio a pretium. Proin id dictum nibh, non cursus tellus. Maecenas finibus odio nunc, nec tincidunt velit accumsan id. Nulla pulvinar tincidunt libero id aliquet. In gravida nec lorem non tempor. Nulla blandit consectetur ullamcorper. Vivamus fringilla augue vel vehicula mattis.</p>
+            <p>Donec tempus arcu vel nisl feugiat gravida. Vestibulum nec ipsum luctus ipsum molestie vestibulum. Curabitur vel sapien feugiat, convallis ante sed, ornare elit. Integer accumsan, enim ac fermentum ultricies, justo mauris maximus massa, vel ornare elit lectus ut tortor. Sed sit amet urna nisl. Nulla dapibus lorem ut molestie cursus. Phasellus in elit vitae lacus porta gravida ac a eros. Duis imperdiet et odio sit amet pharetra. Mauris viverra pellentesque leo, ac condimentum justo lacinia convallis. In vitae tristique turpis. Ut suscipit eros sed dictum condimentum. Nulla facilisi.</p>
+            <p>Vestibulum accumsan ac diam eget varius. Nulla eget ornare nulla. Suspendisse fringilla tincidunt viverra. Nunc dictum vulputate elit eget vulputate. Nulla dictum molestie lectus, eget congue neque consectetur et. Curabitur lobortis nisl a ipsum faucibus tincidunt. Aenean luctus eros pellentesque, gravida magna bibendum, viverra lectus. In sed ipsum sit amet arcu fermentum pellentesque. Duis auctor eros non arcu tincidunt pulvinar. Duis vulputate volutpat porttitor. Proin mauris nunc, malesuada vel justo id, pulvinar viverra turpis. Sed elementum ipsum ipsum, at aliquam lectus fringilla eu. Aenean sit amet interdum leo, vitae faucibus metus. Ut dapibus lacinia tortor eu vulputate. Fusce auctor tellus ac placerat maximus.</p>
+            <p>Suspendisse vulputate quam non dolor vestibulum ullamcorper quis et justo. Maecenas ac nibh nec enim lacinia venenatis id in arcu. Nulla bibendum consequat orci, sed tincidunt diam porta consequat. Etiam tempus ipsum sed elit lacinia tempor. Pellentesque sed egestas tellus. Pellentesque varius arcu mi, in facilisis est placerat nec. Ut eleifend viverra ligula, eu posuere nisl rhoncus quis. Ut non commodo leo. Suspendisse tristique eget dui egestas bibendum. Proin molestie odio eu urna commodo, et viverra elit egestas. Suspendisse sit amet tincidunt augue. Aenean sed nunc faucibus, faucibus ex sit amet, blandit turpis. Vestibulum venenatis eu ante ut cursus.</p>
+        </div>
+    );
+}
+
+export default PrivacyPolicy;

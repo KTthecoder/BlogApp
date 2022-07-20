@@ -1,0 +1,178 @@
+.FormContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1200px;
+    margin-top: 80px;
+    min-height: 50vh;
+    margin-bottom: 50px;
+}
+
+.PhotoDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    height: 380px;
+}
+
+.FromImg{
+    width: 100%;
+}
+
+.FormDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 35%;
+    height: 380px;
+    margin-left: 50px;
+}
+
+.FormHeaderDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.FormHeaderDiv h1{
+    margin: 0px;
+}
+
+.FormHeaderDiv p{
+    margin: 15px 0px 30px 0px;
+}
+
+.FormInputsDiv{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.FormInp{
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 1px solid black;
+    margin-bottom: 30px;
+    outline: none;
+}
+
+.FormInp:focus{
+    border: 1px solid #19A5F1;
+}
+
+.FormBtnsDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.FormBtn{
+    background-color: #19A5F1;
+    border: none;
+    padding: 18px 0px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 180px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.FormLink{
+    text-decoration: none;
+    color: #19A5F1;
+    margin: 0px 0px 0px 1px;
+}
+
+.FormLink:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 1120px){
+    .FormContainer{
+        flex-direction: column;  
+    }
+
+    .PhotoDiv{
+        width: 450px;
+        padding-bottom: 0px;
+        height: auto;
+        margin-top: 30px;
+        display: none;
+    }
+
+    .FormDiv{
+        width: 600px;
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0px;
+    }
+}    
+
+@media(max-width: 670px){
+    .FormDiv{
+        width: 450px;
+    }
+}
+
+@media(max-width: 500px){
+    .FormDiv{
+        width: 350px;
+    }
+}
+
+@media(max-width: 440px){
+    .FormDiv{
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+    }
+
+    .FormHeaderDiv{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .FormInputsDiv{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .FormBtnsDiv{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .FormLink{
+        margin: 0px;
+    }
+
+    .FormBtnsDiv p{
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .FormBtn{
+        margin-right: 0px;
+    }
+
+    .PhotoDiv{
+        width: 80%;
+    }
+
+    .FormDiv{
+        width: 90%;
+    }
+}

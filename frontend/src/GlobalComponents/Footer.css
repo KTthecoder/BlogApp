@@ -1,0 +1,246 @@
+.FooterContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background-color: rgb(16, 16, 16);
+    padding: 100px 0px 100px 0px;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.ListsDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 30%;
+}
+
+.List{
+    width: 45%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.ListHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.ListHeader h2{
+    color: whitesmoke;
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+    width: 70%;
+    font-size: 20px;
+}
+
+.ListList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ListList li{
+    padding: 8px 0px;
+}
+
+.ListHref:hover{
+    color: rgb(15, 118, 173);
+}
+
+.ListHref{
+    color: grey;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.NewsletterDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 40%;
+    flex-direction: column;
+}
+
+.NewsletterHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.NewsletterHeader h2{
+    color: whitesmoke;
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+    width: 60%;
+    font-size: 24px;
+}
+
+.NewsletterP{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.NewsletterP p{
+    color: grey;
+    margin: 0px 0px 30px 0px;
+    padding: 0px;
+    line-height: 30px;
+}
+
+.NewsletterFormDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.NewsletterInput{
+    font-size: 17px;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+}
+
+.NewsletterBtn{
+    padding: 11px 20px 12px 20px;
+    color: white;
+    background-color: rgb(15, 118, 173);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.ProjectInfoDiv{
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ProjectInfoDiv{
+    color: whitesmoke;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+@media(max-width: 1550px){
+    .FooterContainer{
+        justify-content: center;
+    }
+
+    .ListsDiv{
+        width: 40%;
+    }
+
+    .NewsletterDiv{
+        width: 50%;
+    }
+
+    .ProjectInfoDiv{
+        width: 90%;
+    }
+}
+
+@media(max-width: 950px){
+    .FooterContainer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ListsDiv{
+        width: 90%;
+    }
+
+    .NewsletterDiv{
+        width: 90%;
+        margin-top: 70px;
+    }
+
+    .ProjectInfoDiv{
+        width: 90%;
+        margin-top: 70px;
+    }
+}
+
+@media(max-width: 400px){
+    .FooterContainer{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ListsDiv{
+        flex-direction: column;
+    }
+
+    .List{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .ListHeader{
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .ListList{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ListHeader{
+        text-align: center;
+    }
+
+    .NewsletterHeader{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .NewsletterP{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .NewsletterP p{
+        width: 80%;
+    }
+
+    .NewsletterDiv{
+        margin-top: 20px;
+    }
+
+    .NewsletterFormDiv{
+        flex-direction: column;
+    }
+
+    .NewsletterInput{
+        margin: 20px 0px;
+    }
+
+    .ProjectInfoDiv{
+        margin-top: 30px;
+        text-align: center;
+        width: 85%;
+    }
+}

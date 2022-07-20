@@ -1,0 +1,169 @@
+.AboutContainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 1200px;
+    flex-direction: column;
+}
+
+.AboutHeaderDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.AboutHeaderDiv h1{
+    text-align: center;
+    border-bottom: 1px solid grey;
+    width: 30%;
+    padding-bottom: 20px;
+}
+
+.AboutHeaderDiv p{
+    text-align: center;
+    width: 60%;
+    line-height: 30px;
+}
+
+.SocialsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.SocialDiv{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 70px 0px;
+    margin: 20px 20px 20px 20px;
+    border-radius: 10px;
+}
+
+.SocialDiv h2{
+    text-align: center;
+    padding: 0px 30px;
+}
+
+.SocialDiv p{
+    text-align: center;
+    padding: 0px 30px;
+    line-height: 30px;
+}
+
+.SocialIcon{
+    width: 50px;
+}
+
+.StoryDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.StoryDiv h1{
+    text-align: center;
+    width: 40%;
+    border-bottom: 1px solid grey;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.StoryDiv p{
+    width: 70%;
+    line-height: 32px;
+    text-align: center;
+}
+
+@media(max-width: 1250px){
+    .AboutContainer{
+        width: 90%;
+    }
+
+    .AboutHeaderDiv p{
+        width: 500px;
+    }
+
+    .AboutHeaderDiv h1{
+        width: 280px;
+    }
+
+    .StoryDiv h1{
+        width: 280px;
+    }
+
+    .StoryDiv p{
+        width: 800px;
+    }
+
+    .SocialDiv{
+        width: 350px;
+    }
+}
+
+@media(max-width: 920px){
+    .StoryDiv p{
+        width: 600px;
+    }
+}
+
+@media(max-width: 870px){
+    .SocialDiv{
+        width: 450px;
+    }
+}
+
+@media(max-width: 700px){
+    .StoryDiv p{
+        width: 440px;
+    }
+}
+
+@media(max-width: 600px){
+    .AboutHeaderDiv p{
+        width: 400px;
+    }
+}
+
+@media(max-width: 520px){
+    .SocialDiv{
+        width: 350px;
+    }
+
+    .StoryDiv p{
+        width: 350px;
+    }
+}
+
+@media(max-width: 450px){
+    .AboutHeaderDiv p{
+        width: 80%;
+    }
+
+    .StoryDiv p{
+        width: 80%;
+    }
+}
+
+@media(max-width: 400px){
+    .AboutHeaderDiv h1{
+        width: 80%;
+    }
+
+    .StoryDiv h1{
+        width: 80%;
+    }
+}

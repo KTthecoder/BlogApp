@@ -1,0 +1,289 @@
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+
+.NavHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 130px;
+    border-bottom: 1px solid grey;
+}
+
+.menuBtnDiv{
+    width: 7%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.menuBtn{
+    width: 35px;
+    cursor: pointer;
+}
+
+.BlogNameDiv{
+    width: 43%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.BlogName{
+    font-size: 29px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ContactUsDiv{
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+.ContactUsBtn{
+    background-color: rgb(15, 118, 173);
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.CategoriesMenu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    list-style-type: none;
+    padding: 0px;
+    margin: 25px 0px 0px 0px;
+}
+
+.CategoriesLink{
+    text-decoration: none;
+    color: grey;
+    margin-right: 30px;
+    font-size: 17px;
+}
+
+.CategoriesLink-active{
+    text-decoration: none;
+    color: rgb(15, 118, 173);
+    margin: 0px 30px 0px 0px;
+    font-size: 17px;
+    border-top: 5px solid rgb(15, 118, 173);
+    padding-top: 23px;
+    font-weight: bold;
+}
+
+.DrawerDiv-show{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    z-index: 1;
+    position: fixed;
+}
+
+.DrawerDiv-hidden{
+    display: none;
+}
+
+.DrawerBtns{
+    background-color: rgb(16, 16, 16);
+    width: 600px;
+    height: 15vh;
+    margin: 0px;
+    padding: 0px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DrawerImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.DrawerTextDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+}
+
+.DrawerText{
+    font-size: 28px;
+    padding-bottom: 4px;
+    color: white;
+}
+
+.DrawerMenu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 600px;
+    background-color: rgb(16, 16, 16);
+    flex-direction: column;
+    height: 85vh;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.DrawerMenu li{
+    width: 60%;
+    border-bottom: 1px solid whitesmoke;
+    font-size: 17px;
+    padding: 23px 0px;
+}
+
+.DrawerMenu li:first-child{
+    padding: 10px 0px 23px 0px;
+}
+
+.DrawerLink-active{
+    text-decoration: none;
+    color: rgb(15, 118, 173);
+    font-weight: bold;
+}
+
+.DrawerLink{
+    text-decoration: none;
+    color: white;
+}
+
+@media(max-width: 1250px){
+    .menuBtnDiv{
+        width: 10%;
+    }
+
+    .BlogNameDiv{
+        width: 50%;
+    }
+
+    .ContactUsDiv{
+        width: 40%;
+    }
+}
+
+@media(max-width: 1000px){
+    .DrawerBtns{
+        width: 400px;
+    }
+
+    .DrawerMenu{
+        width: 400px;
+    }
+}
+
+@media(max-width: 950px){
+    .menuBtnDiv{
+        width: 13%;
+    }
+
+    .BlogNameDiv{
+        width: 42%;
+    }
+
+    .ContactUsDiv{
+        width: 45%;
+    }
+}
+
+@media(max-width: 650px){
+    .menuBtnDiv{
+        width: 15%;
+    }
+
+    .BlogNameDiv{
+        width: 45%;
+    }
+
+    .ContactUsDiv{
+        width: 40%;
+    }
+
+    .DrawerBtns{
+        width: 100%;
+    }
+
+    .DrawerMenu{
+        width: 100%;
+    }
+}
+
+@media(max-width: 480px){
+    .menuBtnDiv{
+        width: 18%;
+    }
+
+    .BlogNameDiv{
+        width: 70%;
+    }
+
+    .ContactUsDiv{
+        display: none;
+    }
+
+    .CategoriesMenu{
+        overflow-x: scroll;
+        padding-bottom: 30px;
+    }
+}
+
+@media(max-width: 430px){
+    .menuBtnDiv{
+        width: 18%;
+    }
+
+    .BlogNameDiv{
+        width: 82%;
+    }
+
+    .ContactUsDiv{
+        display: none;
+    }
+}
+
+@media(max-width: 380px){
+    .menuBtnDiv{
+        width: 20%;
+    }
+
+    .BlogNameDiv{
+        width: 80%;
+        justify-content: center;
+    }
+
+    .ContactUsDiv{
+        display: none;
+    }
+}
+
+@media(max-width: 280px){
+    .BlogNameDiv{
+        justify-content: flex-end;
+    }
+}
+
+

@@ -1,0 +1,241 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.SmallDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    margin-bottom: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+.SmallDivImgDiv{
+    width: 100%;
+}
+
+.SmallDivImg{
+    width: 100%;
+}
+
+.SmallDivHeaderDiv{
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    border-bottom: 2px solid grey;
+    border-top: 2px solid grey;
+    margin: 20px 0px;
+}
+
+.SmallDivHeaderText{
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+.SmallDivP{
+    margin: 0px;
+    line-height: 30px;
+}
+
+.BigDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    margin-bottom: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+.BigDivImgDiv{
+    width: 100%;
+}
+
+.BigDivImg{
+    width: 100%;
+}
+
+.BigDivHeaderDiv{
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    border-bottom: 2px solid grey;
+    border-top: 2px solid grey;
+    margin: 20px 0px;
+}
+
+.BigDivHeaderText{
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+.BigDivP{
+    margin: 0px;
+    line-height: 30px;
+}
+
+.SmallDivReverse{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    margin-bottom: 50px;
+    text-decoration: none;
+    color: black;
+}
+
+.SmallDivHeaderDivReverse{
+    text-align: start;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    border-bottom: 2px solid grey;
+    border-top: 2px solid grey;
+    margin: 0px 0px 20px 0px;
+}
+
+.SmallDivHeaderTextReverse{
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+.SmallDivPReverse{
+    margin: 0px;
+    line-height: 30px;
+}
+
+.SmallDivImgDivReverse{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.SmallDivImgReverse{
+    width: 100%;
+}
+
+@media(max-width: 1200px){
+    .SmallDivHeaderText{
+        font-size: 22px;
+    }
+
+    .SmallDivP{
+        font-size: 16px;
+    }
+
+    .BigDivP{
+        font-size: 16px;
+    }
+
+    .BigDivHeaderText{
+        font-size: 22px;
+    }
+
+    .SmallDivHeaderTextReverse{
+        font-size: 22px;
+    }
+
+    .SmallDivPReverse{
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 850px){
+    .SmallDiv{
+        width: 43%;
+        margin-bottom: 80px;
+    }
+
+    .BigDiv{
+        width: 45%;
+        margin-bottom: 80px;
+    }
+
+    .SmallDivReverse{
+        width: 42%;
+        margin-bottom: 80px;
+    }
+}
+
+@media(max-width: 600px){
+    .SmallDivHeaderText{
+        font-size: 20px;
+    }
+
+    .SmallDivP{
+        font-size: 15px;
+    }
+
+    .BigDivHeaderText{
+        font-size: 20px;
+    }
+
+    .BigDivP{
+        font-size: 15px;
+    }
+
+    .SmallDivHeaderTextReverse{
+        font-size: 20px;
+    }
+
+    .SmallDivPReverse{
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 490px){
+    .container{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .SmallDiv{
+        width: 100%;
+    }
+
+    .SmallDivHeaderText{
+        font-size: 21px;
+    }
+
+    .SmallDivP{
+        font-size: 16px;
+    }
+
+    .BigDiv{
+        width: 100%;
+    }
+
+    .BigDivHeaderText{
+        font-size: 21px;
+    }
+
+    .BigDivP{
+        font-size: 16px;
+    }
+
+    .SmallDivReverse{
+        width: 100%;
+    }
+
+    .SmallDivHeaderTextReverse{
+        font-size: 21px;
+    }
+
+    .SmallDivPReverse{
+        font-size: 16px;
+    }
+}
