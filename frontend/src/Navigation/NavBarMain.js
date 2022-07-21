@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import menuIconShow from '../Assets/Icons/menu.png'
 import menuIconHidden from '../Assets/Icons/close.png'
 import '../Navigation/NavBarMain.css'
@@ -7,10 +7,12 @@ import { useState, useEffect } from "react";
 function NavBarMain() { 
     const [show, setShow] = useState(false)
     const [categories, setCategories] = useState([])
+    const location = useLocation()
 
     useEffect(() => {
         GetCategories()
-    }, [])
+        setShow(false)
+    }, [location])
  
     function getCookie(name) {
         let cookieValue = null;
