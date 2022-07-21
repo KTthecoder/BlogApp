@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from . import views
+from api.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/all-blogs', AllBlogs, name='AllBlogs'),
+    path('api/all-categories', AllCategories, name='AllCategories'),
+    path('api/blogs/<slug:slug>', BlogByCategory, name='BlogByCategory'),
 
     re_path(r'.*', views.index)
 ]
