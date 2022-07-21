@@ -20,3 +20,8 @@ class BlogModel(models.Model):
 
     def __str__(self):
         return self.title
+
+class MessageModel(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=254, unique=True)
+    message = models.TextField()

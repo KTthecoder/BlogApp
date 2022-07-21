@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import BlogModel, CategoryModel
-from .serializers import BlogSerializer, CategorySerializer
+from .models import *
+from .serializers import *
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -26,3 +26,16 @@ def BlogByCategory(request, slug):
         blogs = BlogModel.objects.filter(category = category.id).order_by("-created")
         serializer = BlogSerializer(blogs, many=True)
         return Response(serializer.data)
+
+@api_view(['POST'])
+def SendMessage(request):
+    if request.method == "POST":
+        data = {}
+        message = MessageSerializer(data = request.data)
+        if message.is_valid():
+            message.save()
+            data['response'] = "Message sent successfully"
+            return Response(data)
+        else:
+            data['response'] = "Error while sending message (write new message)"
+            return Response(data)
