@@ -2,17 +2,54 @@ import { Link, NavLink } from "react-router-dom";
 import menuIconShow from '../Assets/Icons/menu.png'
 import menuIconHidden from '../Assets/Icons/close.png'
 import '../Navigation/NavBarMain.css'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function NavBarMain() { 
     const [show, setShow] = useState(false)
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        GetCategories()
+    }, [])
+ 
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    const GetCategories = () => {
+        const csrftoken = getCookie('csrftoken');
+        fetch('http://127.0.0.1:8000/api/all-categories', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            }
+        })
+        .then(response => response.json())
+        .then(dataR => {
+            setCategories(dataR)
+        })
+        .catch(error => {
+            console.log("Essunia error: ", error)
+        })
+    }
 
     return (
         <nav>
             <div className="NavHeader">
                 <div className="menuBtnDiv">
                     <img src={menuIconShow} alt="menu" className="menuBtn" onClick={() => setShow(true)} />
-                    {/* <a href="https://www.flaticon.com/free-icons/open-menu" title="open menu icons">Open menu icons created by Pixel perfect - Flaticon</a> */}
                 </div>
                 <div className="BlogNameDiv">
                     <Link to="/" className="BlogName">Coding Blog</Link>
@@ -22,11 +59,10 @@ function NavBarMain() {
                 </div>
             </div>
             <ul className="CategoriesMenu">
-                <li><NavLink to="/" className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>Latest</NavLink></li>
-                <li><NavLink to="/categories/python" className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>Python</NavLink></li>
-                <li><NavLink to="/categories/django" className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>Django</NavLink></li>
-                <li><NavLink to="/categories/react" className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>React</NavLink></li>
-                <li><NavLink to="/categories/sql" className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>JavaScript</NavLink></li>
+                <li><NavLink to={"/"} className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>Latest</NavLink></li>
+                {categories && categories.map((item) => (
+                    <li><NavLink to={"categories/" + item.slug} className={({isActive}) => (isActive ? "CategoriesLink-active" : "CategoriesLink")}>{item.category}</NavLink></li>
+                ))}
             </ul>
             <div className={show ? "DrawerDiv-show" : "DrawerDiv-hidden"}>
                 <div className="DrawerBtns">
