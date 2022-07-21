@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, re_path
 from . import views
 from api.views import *
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/all-blogs', AllBlogs, name='AllBlogs'),
     path('api/all-categories', AllCategories, name='AllCategories'),
     path('api/blogs/<slug:slug>', BlogByCategory, name='BlogByCategory'),
-
-    re_path(r'.*', views.index)
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += [re_path(r'^.*', views.index)]
+
+
