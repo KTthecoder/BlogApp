@@ -19,6 +19,7 @@ from . import views
 from api.views import *
 from django.conf.urls.static import static
 from django.conf import settings
+from accountapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('api/all-categories', AllCategories, name='AllCategories'),
     path('api/blogs/<slug:slug>', BlogByCategory, name='BlogByCategory'),
     path('api/message/create', SendMessage, name='SendMessage'),
+    path('api/register', RegisterPage, name='RegisterPage'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [re_path(r'^.*', views.index)]
