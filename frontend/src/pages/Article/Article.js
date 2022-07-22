@@ -4,6 +4,8 @@ import userIcon from '../../Assets/Icons/user.png'
 import calendarIcon from '../../Assets/Icons/calendar.png'
 import reactImage from '../../Assets/Images/react-logo.png'
 import { useEffect, useState } from "react";
+import { Form, Formik } from 'formik';
+import * as yup from 'yup';
 
 function Article(props) {
     let { slug } = useParams()
@@ -46,6 +48,10 @@ function Article(props) {
 
     const BodyHTML = () => {
       return {__html: data.body}
+    }
+
+    const CreateComment = () => {
+        const csrftoken = getCookie('csrftoken');
     }
 
     return (
@@ -126,12 +132,75 @@ function Article(props) {
             <div className="CreateCommentheader">
               <h1>Leave a comment</h1>
             </div>
-            <form className="CreateCommentForm">
+            {data && <Formik
+              initialValues={{name: '', email: '', message: ''}}
+              onSubmit={(values) => {
+                const csrftoken = getCookie('csrftoken');
+                fetch('http://127.0.0.1:8000/api/comments/create', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'X-CSRFToken': csrftoken,
+                      'Accept': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    name: values.name,
+                    email: values.email,
+                    message: values.message,
+                    BlogSlug: data.id,
+                  }) 
+                })
+                .then(response => response.json())
+                .then(data => {
+                  alert("Data: ", data)
+                })
+                .catch(error => {
+                  alert("Error: ", error)
+                })
+              }}
+            >
+              {(props) => (
+                <form onSubmit={props.handleSubmit} className="CreateCommentForm">
+                  {props.errors.name && props.touched.name && props.errors.name}
+                  <input
+                    placeholder="Your Name*"
+                    value={props.values.name}
+                    onBlur={props.handleBlur}
+                    onChange={props.handleChange}
+                    type="text" 
+                    className="CreateCommentInp"
+                    name="name"
+                  />
+                  {props.errors.email && props.touched.email && props.errors.email}
+                  <input
+                    placeholder="Your Email*"
+                    value={props.values.email}
+                    onBlur={props.handleBlur}
+                    onChange={props.handleChange}
+                    type="text" 
+                    className="CreateCommentInp"
+                    name="email"
+                  />
+                  {props.errors.message && props.touched.message && props.errors.message}
+                  <textarea
+                     placeholder="Message*"
+                     value={props.values.message}
+                     onBlur={props.handleBlur}
+                     onChange={props.handleChange}
+                     type="text" 
+                     className="CreateCommentArea"
+                     name="message"
+                  ></textarea>
+                  <button className='CommentBtn' id='CommentBtn' type='submit'>Submit Comment</button>
+                </form>
+              )}
+            </Formik>}
+            {/* <form className="CreateCommentForm">
               <input type="text" className="CreateCommentInp" id="CommentName" placeholder="Your Name*" />
               <input type="text" className="CreateCommentInp" id="CommentEmail" placeholder="Your Email*" />
               <textarea rows="4" cols="50" placeholder='Message*' className='CreateCommentArea' id='CommentMessage'></textarea>
               <button className='CommentBtn' id='CommentBtn' type='submit'>Submit Comment</button>
-            </form>
+            </form> */}
           </div>
       </div>
     );

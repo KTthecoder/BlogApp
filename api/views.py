@@ -85,7 +85,7 @@ def ArticleDetails(request, slug):
 def CreateCommentToArticle(request):
     if request.method == "POST":
         data = {}
-        comment = CommentSerializer(request.data)
+        comment = CommentSerializer(data = request.data)
         if comment.is_valid():
             comment.save()
             data['response'] = "Comment added succesfully!"
