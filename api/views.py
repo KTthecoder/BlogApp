@@ -93,3 +93,23 @@ def CreateCommentToArticle(request):
         else:
             data['response'] = "Error while adding comment"
             return Response(data)
+
+@api_view(['GET'])
+def ShowAllCommentsArticle(request, id):
+    if request.method == 'GET':
+        data = {}
+        try:
+            blog = BlogModel.objects.get(id = id)
+        except BlogModel.DoesNotExist: 
+            data['response'] =  "This article does not exists"
+            return Response(data)
+
+        comments = CommentModel.objects.filter(BlogSlug = blog.id).order_by('-created')
+
+        if comments.exists():
+           serializer = CommentSerializer(comments, many=True)
+        else:
+            data['response'] =  "There are no comments"
+            return Response(data)
+
+        return Response(serializer.data)

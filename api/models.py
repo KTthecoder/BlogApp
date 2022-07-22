@@ -31,3 +31,4 @@ class CommentModel(models.Model):
     email = models.EmailField(max_length=254)
     message = models.TextField()
     BlogSlug = models.ForeignKey(BlogModel, on_delete=models.CASCADE) 
+    created = models.DateField(auto_now_add=True)
