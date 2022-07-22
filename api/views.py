@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import is_valid_path
 from .models import *
 from .serializers import *
 from rest_framework.response import Response
@@ -78,5 +79,17 @@ def ArticleDetails(request, slug):
             return Response(data) 
 
         data = {"id": blog.id, "title": blog.title, "created": blog.created, "body": blog.body, "slug": slug, "title": blog.title, "user": user.get_username()}
-        # serializer = BlogSerializer(blog)
         return Response(data)
+    
+@api_view(['POST'])
+def CreateCommentToArticle(request):
+    if request.method == "POST":
+        data = {}
+        comment = CommentSerializer(request.data)
+        if comment.is_valid():
+            comment.save()
+            data['response'] = "Comment added succesfully!"
+            return Response(data)
+        else:
+            data['response'] = "Error while adding comment"
+            return Response(data)

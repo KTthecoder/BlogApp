@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/message/create', SendMessage, name='SendMessage'),
     path('api/register', RegisterPage, name='RegisterPage'),
     path('api/<slug:slug>', ArticleDetails, name='ArticleDetails'),
+    path('api/comments/create', CreateCommentToArticle, name='CreateCommentToArticle'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [re_path(r'^.*', views.index)]

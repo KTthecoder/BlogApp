@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(BlogModel)
 admin.site.register(CategoryModel)
 admin.site.register(MessageModel)
+admin.site.register(CommentModel)

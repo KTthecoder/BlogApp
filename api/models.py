@@ -23,5 +23,11 @@ class BlogModel(models.Model):
 
 class MessageModel(models.Model):
     name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254, unique=True)
+    email = models.EmailField(max_length=254)
     message = models.TextField()
+
+class CommentModel(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=254)
+    message = models.TextField()
+    BlogSlug = models.ForeignKey(BlogModel, on_delete=models.CASCADE) 

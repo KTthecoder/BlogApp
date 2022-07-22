@@ -15,3 +15,8 @@ class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = MessageModel
         fields = '__all__'
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CommentModel
+        fields = '__all__'
