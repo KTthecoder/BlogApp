@@ -47,8 +47,6 @@ def BlogByCategory(request, slug):
         else:
             serializer = BlogSerializer(blogs, many=True)
             return Response(serializer.data)
-            
-        
 
 @api_view(['POST'])
 def SendMessage(request):
@@ -66,11 +64,19 @@ def SendMessage(request):
 @api_view(['GET'])
 def ArticleDetails(request, slug):
     if request.method == "GET":
-        blog = BlogModel.objects.filter(slug = slug)
         data = {}
-        serializer = BlogSerializer(blog, many = True)
-        if blog.exists():
-            return Response(serializer.data)
-        else: 
+        try: 
+            blog = BlogModel.objects.get(slug = slug)
+        except BlogModel.DoesNotExist:
             data['response'] = "This article does not exists"
-            return Response(data)
+            return Response(data)  
+        
+        try:
+            user = User.objects.get(id = blog.user.id)
+        except User.DoesNotExist:
+            data['response'] = "User does not exists"
+            return Response(data) 
+
+        data = {"id": blog.id, "title": blog.title, "created": blog.created, "body": blog.body, "slug": slug, "title": blog.title, "user": user.get_username()}
+        # serializer = BlogSerializer(blog)
+        return Response(data)

@@ -11,7 +11,7 @@ class CategoryModel(models.Model):
 
 class BlogModel(models.Model):
     title = models.CharField(max_length=250)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     slug = models.SlugField(unique=True)
