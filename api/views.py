@@ -16,8 +16,13 @@ def AllBlogs(request):
 def AllCategories(request):
     if request.method == "GET":
         categories = CategoryModel.objects.all()
-        serializer = CategorySerializer(categories, many=True)
-        return Response(serializer.data)
+        data = {}
+        if categories.exists():
+            serializer = CategorySerializer(categories, many=True)
+            return Response(serializer.data)
+        else: 
+            data['response'] = "There are not categories"
+            return Response(serializer.data)
 
 @api_view(['GET'])
 def BlogByCategory(request, slug):
