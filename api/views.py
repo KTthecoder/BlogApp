@@ -39,3 +39,15 @@ def SendMessage(request):
         else:
             data['response'] = "Error while sending message (write new message)"
             return Response(data)
+
+@api_view(['GET'])
+def ArticleDetails(request, slug):
+    if request.method == "GET":
+        blog = BlogModel.objects.filter(slug = slug)
+        data = {}
+        serializer = BlogSerializer(blog, many = True)
+        if blog.exists():
+            return Response(serializer.data)
+        else: 
+            data['response'] = "This article does not exists"
+            return Response(data)

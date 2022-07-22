@@ -6,9 +6,6 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 
 function Register() {
-    // const [username, setUsername] = useState()
-    // const [password, setPassword] = useState()
-    // const [email, setEmail] = useState()
     const navigate  = useNavigate()
     const location = useLocation();
     const [show, setShow] = useState(false)
@@ -33,32 +30,6 @@ function Register() {
       email: yup.string().email().required("Email is required"),
       password: yup.string().required("Password is required").min(6, "Password is too short")
     })
-
-    // const onSubmit = (event) => {
-    //   const csrftoken = getCookie('csrftoken');
-    //   fetch('http://127.0.0.1:8000/api/register', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'X-CSRFToken': csrftoken,
-    //         'Accept': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //       username: username,
-    //       password: password,
-    //       email: email
-    //     }) 
-    //   })
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     navigate("/")
-    //   })
-    //   .catch(error => {
-    //     setShow(true)
-    //     navigate("/register",{state :{ message : "Username or Email is already taken!"}})
-    //   })
-    //   event.preventDefault();
-    // }
 
     return (
         <div className="FormContainer">
@@ -86,9 +57,6 @@ function Register() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                  // if(data['response'] == "User created Succesfully"){
-                  //   navigate("/")
-                  // }
                   alert(data['response'])
                   navigate("/sign-in")
                 })
@@ -139,16 +107,6 @@ function Register() {
                 </form>
               )}
             </Formik>
-            {/* <form className='FormInputsDiv' onSubmit={onSubmit}>
-                <input type="text" className="FormInp" id='FormUsername' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value) }/>
-                <input type="text" className="FormInp" id='FormEmail' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value) }/>
-                <input type="text" className="FormInp" id='FormPassword' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value) }/>
-                {show && <p className='ErrorMessage'>{location.state.message}</p>}
-                <div className='FormBtnsDiv'>
-                  <button type='submit' className='FormBtn'>Sign Up</button>
-                  <p>Already have an Account? <Link to="/sign-in" className='FormLink'>Sign In</Link></p>
-                </div>
-            </form>  */}
           </div>
       </div>
     );

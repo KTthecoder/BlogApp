@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/blogs/<slug:slug>', BlogByCategory, name='BlogByCategory'),
     path('api/message/create', SendMessage, name='SendMessage'),
     path('api/register', RegisterPage, name='RegisterPage'),
+    path('api/<slug:slug>', ArticleDetails, name='ArticleDetails'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += [re_path(r'^.*', views.index)]
