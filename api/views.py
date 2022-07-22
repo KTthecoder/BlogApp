@@ -22,10 +22,23 @@ def AllCategories(request):
 @api_view(['GET'])
 def BlogByCategory(request, slug):
     if request.method == "GET":
-        category = CategoryModel.objects.get(slug = slug)
+        data = {}
+        try: 
+            category = CategoryModel.objects.get(slug = slug)
+        except CategoryModel.DoesNotExist:
+            data['response'] = "Category does not exists"
+            return Response(data)   
+
         blogs = BlogModel.objects.filter(category = category.id).order_by("-created")
-        serializer = BlogSerializer(blogs, many=True)
-        return Response(serializer.data)
+
+        if not blogs.exists():
+            data['response'] = "There are not blogs in this category"
+            return Response(data) 
+        else:
+            serializer = BlogSerializer(blogs, many=True)
+            return Response(serializer.data)
+            
+        
 
 @api_view(['POST'])
 def SendMessage(request):
