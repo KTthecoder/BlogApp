@@ -109,7 +109,7 @@ def ShowAllCommentsArticle(request, id):
         if comments.exists():
            serializer = CommentSerializer(comments, many=True)
         else:
-            data['response'] =  "There are no comments"
+            data =  []
             return Response(data)
 
         return Response(serializer.data)

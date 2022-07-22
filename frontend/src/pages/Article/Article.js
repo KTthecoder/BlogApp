@@ -10,10 +10,14 @@ import * as yup from 'yup';
 function Article(props) {
     let { slug } = useParams()
     const [data, setData] = useState([])
+    const [comments, setComments] = useState([])
+    const [show, setShow] = useState(true)
 
     useEffect(() => {
         ArticleData()
     }, [])
+
+    
 
     function getCookie(name) {
         let cookieValue = null;
@@ -40,18 +44,32 @@ function Article(props) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log("Data: ", data)
+            console.log(data)
             setData(data)
+            ShowComments(data.id)
         })
-        .catch(err => alert("Error: ", err))
+        .catch(err => alert("Error: ", err.message))
     }
 
     const BodyHTML = () => {
       return {__html: data.body}
     }
 
-    const CreateComment = () => {
+    const ShowComments = (id) => {
         const csrftoken = getCookie('csrftoken');
+        fetch(`http://127.0.0.1:8000/api/comments/${id}/all`, {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Comments: ", data)
+            setComments(data)
+        })
+        .catch(err => {
+          alert("Error")
+          setShow(false)
+        })
     }
 
     return (
@@ -84,49 +102,23 @@ function Article(props) {
             <p>Suspendisse dignissim mattis mi. Integer eget mi vel neque pretium auctor eget et ex. Phasellus eleifend orci at leo convallis auctor. Cras fringilla nisi felis, eu gravida magna iaculis ac. Quisque vel mauris id ipsum vehicula mollis sit amet vitae arcu. Praesent vel augue id ex porta feugiat et et justo. Fusce tincidunt diam at arcu convallis tempus. Proin id hendrerit felis.</p> */}
           </div>
           <div className="CommentsContainer">
-            <h1>Comments</h1>
-            <div className="CommentDiv">
-              <div className="CommentImgDiv">
-                <img src={reactImage} className="CommentImg" alt="Profile photo" />
-              </div>
-              <div className="CommentInfoDiv">
-                <div className="CommentInfo"> 
-                  <p>Ksawery Tkaczyk</p>
-                  <p>September 11, 2022</p>
+            <h1>Comments</h1> 
+            {show && comments.map((item) => (
+              <div className="CommentDiv">
+                <div className="CommentImgDiv">
+                  <img src={reactImage} className="CommentImg" alt="Profile photo" />
                 </div>
-                <div className="Comment">
-                  <p>Lunc ultrices nisl luctus finibus blandit. Ut dolor augue, aliquam sit amet velit et, laoreet commodo felis. Curabitur at placerat tellus. Mauris sit amet justo a libero pulvinar accumsan. Donec rutrum imperdiet ex a pharetra. </p>
-                </div>
-              </div>
-            </div>
-            <div className="CommentDiv">
-              <div className="CommentImgDiv">
-                <img src={reactImage} className="CommentImg" alt="Profile photo" />
-              </div>
-              <div className="CommentInfoDiv">
-                <div className="CommentInfo"> 
-                  <p>Ksawery Tkaczyk</p>
-                  <p>September 11, 2022</p>
-                </div>
-                <div className="Comment">
-                  <p>Lunc ultrices nisl luctus finibus blandit. Ut dolor augue, aliquam sit amet velit et, laoreet commodo felis. Curabitur at placerat tellus. Mauris sit amet justo a libero pulvinar accumsan. Donec rutrum imperdiet ex a pharetra. </p>
+                <div className="CommentInfoDiv">
+                  <div className="CommentInfo"> 
+                    <p>{item.name}</p>
+                    <p>{item.created}</p>
+                  </div>
+                  <div className="Comment">
+                    <p>{item.message}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="CommentDiv">
-              <div className="CommentImgDiv">
-                <img src={reactImage} className="CommentImg" alt="Profile photo" />
-              </div>
-              <div className="CommentInfoDiv">
-                <div className="CommentInfo"> 
-                  <p>Ksawery Tkaczyk</p>
-                  <p>September 11, 2022</p>
-                </div>
-                <div className="Comment">
-                  <p>Lunc ultrices nisl luctus finibus blandit. Ut dolor augue, aliquam sit amet velit et, laoreet commodo felis. Curabitur at placerat tellus. Mauris sit amet justo a libero pulvinar accumsan. Donec rutrum imperdiet ex a pharetra. </p>
-                </div>
-              </div>
-            </div>
+            ))}        
           </div>
           <div className="CreateCommentContainer">
             <div className="CreateCommentheader">
@@ -152,7 +144,7 @@ function Article(props) {
                 })
                 .then(response => response.json())
                 .then(data => {
-                  alert("Data: ", data)
+                  alert("Data comment added succesfully!")
                 })
                 .catch(error => {
                   alert("Error: ", error)
@@ -195,12 +187,6 @@ function Article(props) {
                 </form>
               )}
             </Formik>}
-            {/* <form className="CreateCommentForm">
-              <input type="text" className="CreateCommentInp" id="CommentName" placeholder="Your Name*" />
-              <input type="text" className="CreateCommentInp" id="CommentEmail" placeholder="Your Email*" />
-              <textarea rows="4" cols="50" placeholder='Message*' className='CreateCommentArea' id='CommentMessage'></textarea>
-              <button className='CommentBtn' id='CommentBtn' type='submit'>Submit Comment</button>
-            </form> */}
           </div>
       </div>
     );
