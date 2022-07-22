@@ -8,9 +8,14 @@ from rest_framework.decorators import api_view
 @api_view(['GET'])
 def AllBlogs(request):
     if request.method == "GET":
+        data = {}
         blogs = BlogModel.objects.filter().order_by("-created")
-        serializer = BlogSerializer(blogs, many=True)
-        return Response(serializer.data)
+        if blogs.exists():
+            serializer = BlogSerializer(blogs, many=True)
+            return Response(serializer.data)
+        else: 
+            data['response'] = "There are no blogs"
+            return Response(data)
 
 @api_view(['GET'])
 def AllCategories(request):
@@ -21,7 +26,7 @@ def AllCategories(request):
             serializer = CategorySerializer(categories, many=True)
             return Response(serializer.data)
         else: 
-            data['response'] = "There are not categories"
+            data['response'] = "There are no categories"
             return Response(serializer.data)
 
 @api_view(['GET'])
