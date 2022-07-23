@@ -38,7 +38,7 @@ function Categories() {
         })
         .then(response => response.json())
         .then(dataR => {
-            if(data['response'] == "Category does not exists"){
+            if(data['response'] == "This article does not exists"){
                 navigate("/error", {replace: true})
             }
             setData(dataR)

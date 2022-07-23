@@ -9,6 +9,7 @@ function NavBarMain() {
     const [categories, setCategories] = useState([])
     const location = useLocation()
     const [userToken, setUserToken] = useState()
+    const navigate  = useNavigate()
 
     function getToken() {
         const token = localStorage.getItem('token');
@@ -47,10 +48,13 @@ function NavBarMain() {
         })
         .then(response => response.json())
         .then(dataR => {
+            if(dataR['response'] == "Category does not exists"){
+                navigate("/error", {replace: true})
+            }
             setCategories(dataR)
         })
         .catch(error => {
-            console.log("Essunia error: ", error)
+            console.log("Error: ", error)
         })
     }
 
