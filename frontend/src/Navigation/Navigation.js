@@ -25,6 +25,7 @@ function Navigation() {
         <Route exact path='profile' element={<Profile/>} />
         
         <Route path='*' element={<Error/>} />
+        <Route path='/error' element={<Error/>} />
     </Routes>
   );
 }

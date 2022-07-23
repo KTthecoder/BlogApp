@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import '../Article/Article.css'
 import userIcon from '../../Assets/Icons/user.png'
 import calendarIcon from '../../Assets/Icons/calendar.png'
@@ -12,6 +12,7 @@ function Article(props) {
     const [data, setData] = useState([])
     const [comments, setComments] = useState([])
     const [show, setShow] = useState(true)
+    const navigate  = useNavigate()
 
     useEffect(() => {
         ArticleData()
@@ -35,6 +36,7 @@ function Article(props) {
     const ArticleData = () => {
         const csrftoken = getCookie('csrftoken');
         fetch(`http://127.0.0.1:8000/api/${slug}`, {
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
@@ -42,6 +44,9 @@ function Article(props) {
         })
         .then(response => response.json())
         .then(data => {
+            if(data['response'] == "This article does not exists"){
+              navigate("/error", {replace: true})
+            }
             setData(data)
             ShowComments(data.id)
         })
@@ -55,12 +60,15 @@ function Article(props) {
     const ShowComments = (id) => {
         const csrftoken = getCookie('csrftoken');
         fetch(`http://127.0.0.1:8000/api/comments/${id}/all`, {
+          method: 'GET',
+          headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrftoken,
+          }
         })
         .then(response => response.json())
         .then(data => {
-            setComments(data)
+          setComments(data)
         })
         .catch(err => {
           setShow(false)

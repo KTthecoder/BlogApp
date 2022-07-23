@@ -31,8 +31,8 @@ function Profile() {
                 <p onClick={LogoutUser} style={{cursor: 'pointer'}}>Log out</p>
             </div>
         ) : (
-            <div className="container">
-                <h1>User is not authenticated</h1>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh'}}>
+                <h1 style={{textAlign: 'center', padding: '0px 15px 0px 15px'}}>You are not authenticated</h1>
             </div>
         )}
        </>    

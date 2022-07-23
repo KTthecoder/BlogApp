@@ -1,10 +1,11 @@
 import '../Categories/Categories.css'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from "react";
 
 function Categories() {
     const [data, setData] = useState([])    
     let { slug } = useParams()
+    const navigate  = useNavigate()
 
     useEffect(() => {
         GetBlogs()
@@ -37,6 +38,9 @@ function Categories() {
         })
         .then(response => response.json())
         .then(dataR => {
+            if(data['response'] == "Category does not exists"){
+                navigate("/error", {replace: true})
+            }
             setData(dataR)
         })
         .catch(error => {
