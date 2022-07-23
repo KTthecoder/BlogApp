@@ -20,14 +20,17 @@ from api.views import *
 from django.conf.urls.static import static
 from django.conf import settings
 from accountapp.views import *
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/login', obtain_auth_token, name='LoginPage'),
+    path('api/register', RegisterPage, name='RegisterPage'),
+
     path('api/all-blogs', AllBlogs, name='AllBlogs'),
     path('api/all-categories', AllCategories, name='AllCategories'),
     path('api/blogs/<slug:slug>', BlogByCategory, name='BlogByCategory'),
     path('api/message/create', SendMessage, name='SendMessage'),
-    path('api/register', RegisterPage, name='RegisterPage'),
     path('api/<slug:slug>', ArticleDetails, name='ArticleDetails'),
     path('api/comments/create', CreateCommentToArticle, name='CreateCommentToArticle'),
     path('api/comments/<int:id>/all', ShowAllCommentsArticle, name='ShowAllCommentsArticle'),

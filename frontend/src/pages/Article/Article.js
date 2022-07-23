@@ -17,8 +17,6 @@ function Article(props) {
         ArticleData()
     }, [])
 
-    
-
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -71,6 +69,12 @@ function Article(props) {
           setShow(false)
         })
     }
+
+    let schema = yup.object().shape({
+      name: yup.string().required("Name is required").min(3, "Name is too short").max(30, "Name is too long"),
+      email: yup.string().email().required("Email is required"),
+      message: yup.string().required("Message is required").min(1, "Message is too short")
+    })
 
     return (
       <div className="ArticleContainer">
@@ -126,6 +130,7 @@ function Article(props) {
             </div>
             {data && <Formik
               initialValues={{name: '', email: '', message: ''}}
+              validationSchema={schema}
               onSubmit={(values) => {
                 const csrftoken = getCookie('csrftoken');
                 fetch('http://127.0.0.1:8000/api/comments/create', {
@@ -144,7 +149,7 @@ function Article(props) {
                 })
                 .then(response => response.json())
                 .then(data => {
-                  alert("Data comment added succesfully!")
+                  alert("Comment added succesfully! (refresh page)")
                 })
                 .catch(error => {
                   alert("Error: ", error)
@@ -152,8 +157,7 @@ function Article(props) {
               }}
             >
               {(props) => (
-                <form onSubmit={props.handleSubmit} className="CreateCommentForm">
-                  {props.errors.name && props.touched.name && props.errors.name}
+                <form onSubmit={props.handleSubmit} className="CreateCommentForm">            
                   <input
                     placeholder="Your Name*"
                     value={props.values.name}
@@ -162,8 +166,7 @@ function Article(props) {
                     type="text" 
                     className="CreateCommentInp"
                     name="name"
-                  />
-                  {props.errors.email && props.touched.email && props.errors.email}
+                  />               
                   <input
                     placeholder="Your Email*"
                     value={props.values.email}
@@ -173,7 +176,6 @@ function Article(props) {
                     className="CreateCommentInp"
                     name="email"
                   />
-                  {props.errors.message && props.touched.message && props.errors.message}
                   <textarea
                      placeholder="Message*"
                      value={props.values.message}
@@ -184,6 +186,11 @@ function Article(props) {
                      name="message"
                   ></textarea>
                   <button className='CommentBtn' id='CommentBtn' type='submit'>Submit Comment</button>
+                  {props.errors.name && props.touched.name && props.errors.name}
+                  <br/>
+                  {props.errors.email && props.touched.email && props.errors.email}
+                  <br/>
+                  {props.errors.message && props.touched.message && props.errors.message}
                 </form>
               )}
             </Formik>}

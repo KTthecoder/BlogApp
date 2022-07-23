@@ -1,4 +1,4 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import menuIconShow from '../Assets/Icons/menu.png'
 import menuIconHidden from '../Assets/Icons/close.png'
 import '../Navigation/NavBarMain.css'
@@ -8,10 +8,23 @@ function NavBarMain() {
     const [show, setShow] = useState(false)
     const [categories, setCategories] = useState([])
     const location = useLocation()
+    const [userToken, setUserToken] = useState()
+    const navigate  = useNavigate()
+
+    function getToken() {
+        const token = localStorage.getItem('token');
+        setUserToken(token)
+    }
+
+    function LogoutUser() {
+        localStorage.removeItem('token')
+        navigate('/')
+    }
 
     useEffect(() => {
         GetCategories()
         setShow(false)
+        getToken()
     }, [location])
  
     function getCookie(name) {
@@ -57,7 +70,12 @@ function NavBarMain() {
                     <Link to="/" className="BlogName">Coding Blog</Link>
                 </div>
                 <div className="ContactUsDiv">
-                    <Link to="/sign-in" className="ContactUsBtn">Sign In</Link>
+                    {userToken ? (
+                        <p className="ContactUsBtn" onClick={LogoutUser} style={{cursor: 'pointer'}}>Log out</p>
+                    ): (
+                        <Link to="/sign-in" className="ContactUsBtn">Sign In</Link>
+                    )}
+                    
                 </div>
             </div>
             <ul className="CategoriesMenu">
