@@ -42,7 +42,6 @@ function Article(props) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             setData(data)
             ShowComments(data.id)
         })
@@ -61,11 +60,9 @@ function Article(props) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log("Comments: ", data)
             setComments(data)
         })
         .catch(err => {
-          alert("Error")
           setShow(false)
         })
     }
@@ -152,7 +149,7 @@ function Article(props) {
                   alert("Comment added succesfully! (refresh page)")
                 })
                 .catch(error => {
-                  alert("Error: ", error)
+                  alert("Error while adding comment")
                 })
               }}
             >

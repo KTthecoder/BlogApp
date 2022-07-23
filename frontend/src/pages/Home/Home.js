@@ -38,7 +38,7 @@ function Home() {
             setData(dataR)
         })
         .catch(error => {
-            console.log("Essunia error: ", error)
+            console.log("Error while rendering articles")
         })
     }
 

@@ -57,13 +57,11 @@ function Register() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                  alert(data['response'])
                   navigate("/sign-in")
                 })
                 .catch(error => {
                   setShow(true)
                   navigate("/register",{state :{ message : "Username or Email is already taken!"}})
-                  console.log("Username or email is already taken", error)
                 })
               }}
             >

@@ -9,16 +9,10 @@ function NavBarMain() {
     const [categories, setCategories] = useState([])
     const location = useLocation()
     const [userToken, setUserToken] = useState()
-    const navigate  = useNavigate()
 
     function getToken() {
         const token = localStorage.getItem('token');
         setUserToken(token)
-    }
-
-    function LogoutUser() {
-        localStorage.removeItem('token')
-        navigate('/')
     }
 
     useEffect(() => {
@@ -71,7 +65,7 @@ function NavBarMain() {
                 </div>
                 <div className="ContactUsDiv">
                     {userToken ? (
-                        <p className="ContactUsBtn" onClick={LogoutUser} style={{cursor: 'pointer'}}>Log out</p>
+                        <Link to="/profile" className="ContactUsBtn">Profile</Link>
                     ): (
                         <Link to="/sign-in" className="ContactUsBtn">Sign In</Link>
                     )}
@@ -98,7 +92,11 @@ function NavBarMain() {
                     <li><NavLink to="/" className={({isActive}) => (isActive ? "DrawerLink-active" : "DrawerLink")}>Home</NavLink></li>
                     <li><NavLink to="/about" className={({isActive}) => (isActive ? "DrawerLink-active" : "DrawerLink")}>About</NavLink></li>
                     <li><NavLink to="/contact" className={({isActive}) => (isActive ? "DrawerLink-active" : "DrawerLink")}>Contact</NavLink></li>
-                    <li><NavLink to="/sign-in" className={({isActive}) => (isActive ? "DrawerLink-active" : "DrawerLink")}>Sign In</NavLink></li>
+                    {userToken ? (
+                        <li><NavLink to="/profile" className={({isActive}) => (isActive ? "DrawerLink-active" : "DrawerLink")}>Profile</NavLink></li>
+                    ): (
+                        <li><NavLink to="/sign-in" className={({isActive}) => (isActive ? "DrawerLink-active" : "DrawerLink")}>Sign in</NavLink></li>
+                    )}
                 </ul>
             </div>
         </nav>

@@ -8,6 +8,7 @@ import Error from '../pages/Error/Error';
 import Contact from '../pages/Contact/Contact';
 import About from '../pages/About/About';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import Profile from '../pages/AuthenticatedUser/Profile';
 
 function Navigation() {
   return (
@@ -21,6 +22,7 @@ function Navigation() {
 
         <Route exact path='/sign-in' element={<SignIn/>} />
         <Route exact path='/register' element={<Register/>} />
+        <Route exact path='profile' element={<Profile/>} />
         
         <Route path='*' element={<Error/>} />
     </Routes>

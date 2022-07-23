@@ -1,14 +1,13 @@
 import svg from '../../Assets/Svg/undraw_online_stats_0g94.svg'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../SignIn/SignIn.css'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useState } from 'react'
 
-function SignIn({props}) {
+function SignIn() {
     const navigate  = useNavigate()
     const [show, setShow] = useState(false)
-    // const userToken = props.setToken
 
     function getCookie(name) {
         let cookieValue = null;
@@ -99,14 +98,6 @@ function SignIn({props}) {
                 </form>
               )}
             </Formik>
-            {/* <form className='FormInputsDiv'>
-                <input type="text" className="FormInp" id='FormEmail' placeholder='Email' />
-                <input type="text" className="FormInp" id='FormPassword' placeholder='Password' />
-                <div className='FormBtnsDiv'>
-                  <button type='submit' className='FormBtn'>Login</button>
-                  <p>New User? <Link to="/register" className='FormLink'>Sign Up</Link></p>
-                </div>
-            </form> */}
           </div>
       </div>
     );
