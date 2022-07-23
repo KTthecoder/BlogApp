@@ -48,9 +48,6 @@ function NavBarMain() {
         })
         .then(response => response.json())
         .then(dataR => {
-            if(dataR['response'] == "Category does not exists"){
-                navigate("/error", {replace: true})
-            }
             setCategories(dataR)
         })
         .catch(error => {
