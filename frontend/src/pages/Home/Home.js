@@ -47,7 +47,7 @@ function Home() {
             {data[0] && 
                 <Link to={"/" + data[0].slug} className="SmallDiv">
                     <div className="SmallDivImgDiv">
-                        <img src={data[0].frontImageFile} alt="react" className='SmallDivImg'/>
+                        <img src={data[0].frontImageFile} alt={data[0].frontImageFileAlt} className='SmallDivImg'/>
                     </div>
                     <div className='SmallDivHeaderDiv'>
                         <h1 className='SmallDivHeaderText'>{data[0].title}</h1>
@@ -60,7 +60,7 @@ function Home() {
             {data[1] && 
                 <Link to={"/" + data[1].slug} className="BigDiv">
                     <div className="BigDivImgDiv">
-                        <img src={data[1].frontImageFile} alt="react" className='BigDivImg'/>
+                        <img src={data[1].frontImageFile} alt={data[1].frontImageFileAlt} className='BigDivImg'/>
                     </div>
                     <div className='BigDivHeaderDiv'>
                         <h1 className='BigDivHeaderText'>{data[1].title}</h1>
@@ -79,14 +79,14 @@ function Home() {
                         <p className='SmallDivPReverse'>Donec tempus arcu vel nisl feugiat gravida. Vestibulum nec ipsum luctus ipsum molestie vestibulum. Curabitur vel sapien feugiat, convallis ante sed, ornare elit. Integer accumsan, enim ac fermentum ultricies, justo mauris maximus massa, vel ornare elit lectus ut tortor. Sed sit amet urna nisl.</p>
                     </div>
                     <div className="SmallDivImgDivReverse">
-                        <img src={data[2].frontImageFile} alt="react" className='SmallDivImgReverse'/>
+                        <img src={data[2].frontImageFile} alt={data[2].frontImageFileAlt} className='SmallDivImgReverse'/>
                     </div>
                 </Link>
             }
             {data[3] && 
                 <Link to={"/" + data[3].slug} className="BigDiv">
                     <div className="BigDivImgDiv">
-                        <img src={data[3].frontImageFile} alt="react" className='BigDivImg'/>
+                        <img src={data[3].frontImageFile} alt={data[3].frontImageFileAlt} className='BigDivImg'/>
                     </div>
                     <div className='BigDivHeaderDiv'>
                         <h1 className='BigDivHeaderText'>{data[3].title}</h1>
@@ -99,7 +99,7 @@ function Home() {
             {data[4] && 
                 <Link to={"/" + data[4].slug} className="SmallDiv">
                     <div className="SmallDivImgDiv">
-                        <img src={data[4].frontImageFile} alt="react" className='SmallDivImg'/>
+                        <img src={data[4].frontImageFile} alt={data[4].frontImageFileAlt} className='SmallDivImg'/>
                     </div>
                     <div className='SmallDivHeaderDiv'>
                         <h1 className='SmallDivHeaderText'>{data[4].title}</h1>
@@ -118,7 +118,7 @@ function Home() {
                         <p className='SmallDivPReverse'>Donec tempus arcu vel nisl feugiat gravida. Vestibulum nec ipsum luctus ipsum molestie vestibulum. Curabitur vel sapien feugiat, convallis ante sed, ornare elit. Integer accumsan, enim ac fermentum ultricies, justo mauris maximus massa, vel ornare elit lectus ut tortor. Sed sit amet urna nisl.</p>
                     </div>
                     <div className="SmallDivImgDivReverse">
-                        <img src={data[5].frontImageFile} alt="react" className='SmallDivImgReverse'/>
+                        <img src={data[5].frontImageFile} alt={data[5].frontImageFileAlt} className='SmallDivImgReverse'/>
                     </div>
                 </Link>
             }
@@ -131,14 +131,14 @@ function Home() {
                         <p className='SmallDivPReverse'>Donec tempus arcu vel nisl feugiat gravida. Vestibulum nec ipsum luctus ipsum molestie vestibulum. Curabitur vel sapien feugiat, convallis ante sed, ornare elit. Integer accumsan, enim ac fermentum ultricies, justo mauris maximus massa, vel ornare elit lectus ut tortor. Sed sit amet urna nisl.</p>
                     </div>
                     <div className="SmallDivImgDivReverse">
-                        <img src={data[6].frontImageFile} alt="react" className='SmallDivImgReverse'/>
+                        <img src={data[6].frontImageFile} alt={data[6].frontImageFileAlt} className='SmallDivImgReverse'/>
                     </div>
                 </Link>
             }
             {data[7] && 
                 <Link to={"/" + data[7].slug} className="SmallDiv">
                     <div className="SmallDivImgDiv">
-                        <img src={data[7].frontImageFile} alt="react" className='SmallDivImg'/>
+                        <img src={data[7].frontImageFile} alt={data[7].frontImageFileAlt} className='SmallDivImg'/>
                     </div>
                     <div className='SmallDivHeaderDiv'>
                         <h1 className='SmallDivHeaderText'>{data[7].title}</h1>
@@ -151,7 +151,7 @@ function Home() {
             {data[8] && 
                 <Link to={"/" + data[8].slug} className="BigDiv">
                     <div className="BigDivImgDiv">
-                        <img src={data[8].frontImageFile} alt="react" className='BigDivImg'/>
+                        <img src={data[8].frontImageFile} alt={data[8].frontImageFileAlt} className='BigDivImg'/>
                     </div>
                     <div className='BigDivHeaderDiv'>
                         <h1 className='BigDivHeaderText'>{data[8].title}</h1>

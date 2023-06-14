@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 function Profile() {
@@ -25,8 +25,6 @@ function Profile() {
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '95%', height: '50vh'}}>
                 <h1>User is authenticated</h1>
                 <br/>
-                {/* <h2>Token: {userToken}</h2>
-                <br/> */}
                 <p onClick={LogoutUser} style={{cursor: 'pointer', padding: '8px 20px', color: 'white', borderRadius: '5px', backgroundColor: 'rgb(15, 118, 173)'}}>Log out</p>
             </div>
         ) : (

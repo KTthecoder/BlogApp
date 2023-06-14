@@ -15,6 +15,7 @@ function Footer() {
                         <li><Link to="/contact" className="ListHref">Contact Us</Link></li>
                         <li><Link to="/sign-in" className="ListHref">Sign In</Link></li>
                         <li><Link to="/privacy-policy" className="ListHref">Privacy Policy</Link></li>
+                        <li><a href="https://unsplash.com/" className="ListHref">Images</a></li>
                     </ul>
                 </div>
                 <div className="List">
@@ -27,6 +28,7 @@ function Footer() {
                         <li><a href="https://www.google.com/" className="ListHref">Twitter</a></li>
                         <li><a href="https://www.google.com/" className="ListHref">Pinterest</a></li>
                         <li><a href="https://www.google.com/" className="ListHref">TikTok</a></li>
+                        <li><a href="https://pl.freepik.com/" className="ListHref">Images</a></li>
                     </ul>
                 </div>
             </div>

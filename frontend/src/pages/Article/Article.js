@@ -2,10 +2,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import '../Article/Article.css'
 import userIcon from '../../Assets/Icons/user.png'
 import calendarIcon from '../../Assets/Icons/calendar.png'
-import reactImage from '../../Assets/Images/react-logo.png'
 import { useEffect, useState } from "react";
-import { Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
+import userAvatar from '../../Assets/Icons/avatar.jpg'
 
 function Article(props) {
     let { slug } = useParams()
@@ -15,22 +15,22 @@ function Article(props) {
     const navigate  = useNavigate()
 
     useEffect(() => {
-        ArticleData()
+      ArticleData()
     }, [])
 
     function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
         }
-        return cookieValue;
+      }
+      return cookieValue;
     }
 
     const ArticleData = () => {
@@ -58,21 +58,21 @@ function Article(props) {
     }
 
     const ShowComments = (id) => {
-        const csrftoken = getCookie('csrftoken');
-        fetch(`http://127.0.0.1:8000/api/comments/${id}/all`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken,
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          setComments(data)
-        })
-        .catch(err => {
-          setShow(false)
-        })
+      const csrftoken = getCookie('csrftoken');
+      fetch(`http://127.0.0.1:8000/api/comments/${id}/all`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        setComments(data)
+      })
+      .catch(err => {
+        setShow(false)
+      })
     }
 
     let schema = yup.object().shape({
@@ -98,24 +98,14 @@ function Article(props) {
               <p>{data.created}</p>
             </div>
           </div>
-          <div className="ArticleBody" dangerouslySetInnerHTML={BodyHTML()}>
-            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend rutrum purus a elementum. Proin ac orci quam. Donec ullamcorper tempus felis in ultricies. Cras mattis condimentum ante, sit amet mollis dolor. Proin in euismod nisl. Quisque vel arcu bibendum, luctus tellus eu, ultricies elit. Mauris volutpat eros eros, sed lobortis est aliquam a. Fusce nulla erat, elementum ac diam sit amet, euismod fringilla quam. Donec lacus metus, porttitor vitae pellentesque sed, malesuada in nisi.</p>
-            <img src={reactImage} alt="react icon" className="ArticleImage" />
-            <p>Suspendisse dignissim mattis mi. Integer eget mi vel neque pretium auctor eget et ex. Phasellus eleifend orci at leo convallis auctor. Cras fringilla nisi felis, eu gravida magna iaculis ac. Quisque vel mauris id ipsum vehicula mollis sit amet vitae arcu. Praesent vel augue id ex porta feugiat et et justo. Fusce tincidunt diam at arcu convallis tempus. Proin id hendrerit felis.</p>
-            <h2>How to create React Native project using Expo</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend rutrum purus a elementum. Proin ac orci quam. Donec ullamcorper tempus felis in ultricies. Cras mattis condimentum ante, sit amet mollis dolor. Proin in euismod nisl. Quisque vel arcu bibendum, luctus tellus eu, ultricies elit. Mauris volutpat eros eros, sed lobortis est aliquam a. Fusce nulla erat, elementum ac diam sit amet, euismod fringilla quam. Donec lacus metus, porttitor vitae pellentesque sed, malesuada in nisi.</p>
-            <p>Suspendisse dignissim mattis mi. Integer eget mi vel neque pretium auctor eget et ex. Phasellus eleifend orci at leo convallis auctor. Cras fringilla nisi felis, eu gravida magna iaculis ac. Quisque vel mauris id ipsum vehicula mollis sit amet vitae arcu. Praesent vel augue id ex porta feugiat et et justo. Fusce tincidunt diam at arcu convallis tempus. Proin id hendrerit felis.</p>
-            <img src={reactImage} alt="react icon" className="ArticleImage" />
-            <h2>How to create React Native project using Expo</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend rutrum purus a elementum. Proin ac orci quam. Donec ullamcorper tempus felis in ultricies. Cras mattis condimentum ante, sit amet mollis dolor. Proin in euismod nisl. Quisque vel arcu bibendum, luctus tellus eu, ultricies elit. Mauris volutpat eros eros, sed lobortis est aliquam a. Fusce nulla erat, elementum ac diam sit amet, euismod fringilla quam. Donec lacus metus, porttitor vitae pellentesque sed, malesuada in nisi.</p>
-            <p>Suspendisse dignissim mattis mi. Integer eget mi vel neque pretium auctor eget et ex. Phasellus eleifend orci at leo convallis auctor. Cras fringilla nisi felis, eu gravida magna iaculis ac. Quisque vel mauris id ipsum vehicula mollis sit amet vitae arcu. Praesent vel augue id ex porta feugiat et et justo. Fusce tincidunt diam at arcu convallis tempus. Proin id hendrerit felis.</p> */}
-          </div>
+          <div className="ArticleBody" dangerouslySetInnerHTML={BodyHTML()}></div>
           <div className="CommentsContainer">
             <h1>Comments</h1> 
             {show && comments.map((item) => (
               <div className="CommentDiv">
                 <div className="CommentImgDiv">
-                  <img src={reactImage} className="CommentImg" alt="Profile photo" />
+                  <img src={userAvatar} className="CommentImg" alt="Image by rawpixel.com" />
+                  {/* <a href="https://www.freepik.com/free-vector/illustration-user-avatar-icon_2606572.htm#query=user%20avatar&position=2&from_view=search&track=ais">Image by rawpixel.com</a> on Freepik */}
                 </div>
                 <div className="CommentInfoDiv">
                   <div className="CommentInfo"> 
@@ -171,6 +161,7 @@ function Article(props) {
                     type="text" 
                     className="CreateCommentInp"
                     name="name"
+                    autoComplete="off"
                   />               
                   <input
                     placeholder="Your Email*"
@@ -180,15 +171,17 @@ function Article(props) {
                     type="text" 
                     className="CreateCommentInp"
                     name="email"
+                    autoComplete="off"
                   />
                   <textarea
-                     placeholder="Message*"
-                     value={props.values.message}
-                     onBlur={props.handleBlur}
-                     onChange={props.handleChange}
-                     type="text" 
-                     className="CreateCommentArea"
-                     name="message"
+                    placeholder="Message*"
+                    value={props.values.message}
+                    onBlur={props.handleBlur}
+                    onChange={props.handleChange}
+                    type="text" 
+                    className="CreateCommentArea"
+                    name="message"
+                    autoComplete="off"
                   ></textarea>
                   <button className='CommentBtn' id='CommentBtn' type='submit'>Submit Comment</button>
                   {props.errors.name && props.touched.name && props.errors.name}

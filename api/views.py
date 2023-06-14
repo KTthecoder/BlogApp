@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.urls import is_valid_path
 from .models import *
 from .serializers import *
 from rest_framework.response import Response
@@ -10,7 +8,7 @@ from rest_framework.decorators import api_view
 def AllBlogs(request):
     if request.method == "GET":
         data = {}
-        blogs = BlogModel.objects.filter().order_by("-created")
+        blogs = BlogModel.objects.all().order_by("-created")
         if blogs.exists():
             serializer = BlogSerializer(blogs, many=True)
             return Response(serializer.data)

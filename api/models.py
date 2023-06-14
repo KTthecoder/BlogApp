@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_resized import ResizedImageField
 
 # Create your models here.
 class CategoryModel(models.Model):
@@ -15,7 +16,8 @@ class BlogModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     slug = models.SlugField(unique=True)
-    frontImageFile = models.ImageField(blank=True, null=True, upload_to="frontImages")
+    frontImageFile = ResizedImageField(force_format="WEBP", quality=80, upload_to="frontImages")
+    frontImageFileAlt = models.CharField(max_length=150)
     category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE)
 
     def __str__(self):

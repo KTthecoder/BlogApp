@@ -9,7 +9,6 @@ function NavBarMain() {
     const [categories, setCategories] = useState([])
     const location = useLocation()
     const [userToken, setUserToken] = useState()
-    const navigate  = useNavigate()
 
     function getToken() {
         const token = localStorage.getItem('token');

@@ -1,15 +1,7 @@
-from django.shortcuts import render
-
-from .models import Account
 from .serializers import AccountSerializer
-
 from django.contrib.auth.models import User
-
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
-from django.core.validators import validate_email
-
 
 # Create your views here.
 @api_view(['POST'])

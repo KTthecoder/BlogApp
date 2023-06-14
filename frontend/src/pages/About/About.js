@@ -14,31 +14,31 @@ function About() {
             </div>
             <div className='SocialsContainer'>
                 <div className='SocialDiv'>
-                    <img src={facebookIcon} alt='Facebook' className='SocialIcon' />
+                    <img src={facebookIcon} alt='Facebook icons created by Freepik - Flaticon' className='SocialIconn' />
                     {/* <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Freepik - Flaticon</a> */}
                     <h2>Facebook</h2>
                     <p>Donec orci turpis, pellentesque non ultricies non, ornare in mi. Ut aliquet enim ac arcu laoreet ornare. Aenean pellentesque auctor egestas. Cras pellentesque elit sit amet facilisis tempus. Aliquam quis purus sed libero tincidunt semper.</p>
                 </div>
                 <div className='SocialDiv'>
-                    <img src={instagramIcon} alt='Facebook' className='SocialIcon' />
+                    <img src={instagramIcon} alt='Instagram icons created by Freepik - Flaticon' className='SocialIconn' />
                     {/* <a href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a> */}
                     <h2>Instagram</h2>
                     <p>Donec orci turpis, pellentesque non ultricies non, ornare in mi. Ut aliquet enim ac arcu laoreet ornare. Aenean pellentesque auctor egestas. Cras pellentesque elit sit amet facilisis tempus. Aliquam quis purus sed libero tincidunt semper.</p>
                 </div>
                 <div className='SocialDiv'>
-                    <img src={twitterIcon} alt='Facebook' className='SocialIcon' />
+                    <img src={twitterIcon} alt='Twitter icons created by Pixel perfect - Flaticon' className='SocialIconn' />
                     {/* <a href="https://www.flaticon.com/free-icons/twitter" title="twitter icons">Twitter icons created by Pixel perfect - Flaticon</a> */}
                     <h2>Twitter</h2>
                     <p>Donec orci turpis, pellentesque non ultricies non, ornare in mi. Ut aliquet enim ac arcu laoreet ornare. Aenean pellentesque auctor egestas. Cras pellentesque elit sit amet facilisis tempus. Aliquam quis purus sed libero tincidunt semper.</p>
                 </div>
                 <div className='SocialDiv'>
-                    <img src={pinterestIcon} alt='Facebook' className='SocialIcon' />
+                    <img src={pinterestIcon} alt='Pinterest icons created by riajulislam - Flaticon' className='SocialIconn' />
                     {/* <a href="https://www.flaticon.com/free-icons/pinterest" title="pinterest icons">Pinterest icons created by riajulislam - Flaticon</a> */}
                     <h2>Pinterest</h2>
                     <p>Donec orci turpis, pellentesque non ultricies non, ornare in mi. Ut aliquet enim ac arcu laoreet ornare. Aenean pellentesque auctor egestas. Cras pellentesque elit sit amet facilisis tempus. Aliquam quis purus sed libero tincidunt semper.</p>
                 </div>
                 <div className='SocialDiv'>
-                    <img src={tiktokIcon} alt='Facebook' className='SocialIcon' />
+                    <img src={tiktokIcon} alt='Tiktok icons created by Freepik - Flaticon' className='SocialIconn' />
                     {/* <a href="https://www.flaticon.com/free-icons/tiktok" title="tiktok icons">Tiktok icons created by Freepik - Flaticon</a> */}
                     <h2>Tik-Tok</h2>
                     <p>Donec orci turpis, pellentesque non ultricies non, ornare in mi. Ut aliquet enim ac arcu laoreet ornare. Aenean pellentesque auctor egestas. Cras pellentesque elit sit amet facilisis tempus. Aliquam quis purus sed libero tincidunt semper.</p>
